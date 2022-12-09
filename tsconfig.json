@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "esnext",
+    "outDir": "build",
+    "declaration": true,
+    "strict": true,
+    "module": "esnext",
+    "noEmitOnError": true,
+    "lib": ["es2017"],
+    "esModuleInterop": true,
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/__tests__/**/*"],
+}

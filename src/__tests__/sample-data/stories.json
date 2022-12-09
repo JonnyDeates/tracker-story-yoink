@@ -1,0 +1,30 @@
+[
+  {
+    "kind": "story",
+    "id": 889988,
+    "created_at": "2022-01-13T22:54:51Z",
+    "updated_at": "2022-03-02T15:36:15Z",
+    "accepted_at": "2022-03-02T15:36:15Z",
+    "estimate": 1,
+    "story_type": "feature",
+    "story_priority": "p3",
+    "name": "story-name",
+    "description": "story-description",
+    "current_state": "current-state",
+    "requested_by_id": 112,
+    "url": "https://story-url.io",
+    "project_id": 11235,
+    "owner_ids": [112, 113],
+    "labels": [
+      {
+        "id": 44,
+        "project_id": 11235,
+        "kind": "label",
+        "name": "label-name",
+        "created_at": "2021-08-27T16:47:16Z",
+        "updated_at": "2021-08-31T16:00:54Z"
+      }
+    ],
+    "owned_by_id": 112
+  }
+]

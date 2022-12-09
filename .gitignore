@@ -1,0 +1,8 @@
+/node_modules
+/.vscode
+/.idea
+/coverage
+/dist 
+/build
+.envrc
+package-lock.json
