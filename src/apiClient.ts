@@ -2,6 +2,7 @@ import axios from 'axios';
 import chalk from 'chalk';
 import mapStories from './mappers/storyMapper';
 import Story from './types/story';
+import {type} from "os";
 
 const TRACKER_URL =
   process.env.TRACKER_URL || 'https://www.pivotaltracker.com/services/v5';
@@ -24,6 +25,7 @@ function generateUrl(
 
 export default async function getStories(
   projectId: number,
+  isOnlyPointed: boolean
 ): Promise<Story[]> {
   try {
     let offset: number = 0;
@@ -41,6 +43,7 @@ export default async function getStories(
     );
 
     let stories = mapStories(response.data as any[]);
+
     const total = parseInt(response.headers['x-tracker-pagination-total'], 10);
 
     console.log(
@@ -68,7 +71,15 @@ export default async function getStories(
         stories = [...stories, ...mapStories(response.data as any[])];
       }
     }
-    return stories.filter((story) => story.state !== 'accepted');
+    return stories.filter((story) => {
+      const onlyNonAccepted = story.state !== 'accepted';
+
+      if(isOnlyPointed){
+        return onlyNonAccepted && typeof story.points === 'number'
+      }
+
+      return onlyNonAccepted
+    });
   } catch (e: any) {
     console.log(chalk.red(`error retrieving stories ${e.message}`));
     return Promise.reject(e.message);

@@ -9,8 +9,8 @@ function getTrackerProjectId(): number {
   return Number.parseInt(process.env.TRACKER_PROJECT_ID, 10);
 }
 
-export default async function main() {
+export default async function main(isOnlyPointed: boolean) {
   const trackerProjectId = getTrackerProjectId();
-  const stories = await getStories(trackerProjectId);
+  const stories = await getStories(trackerProjectId, isOnlyPointed);
   generateMarkdown(stories);
 }

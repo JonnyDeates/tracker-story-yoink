@@ -1,7 +1,15 @@
 import chalk from 'chalk';
 import main from './main';
+const argv = require('minimist')(process.argv.slice(2));
+
 export default async function app(): Promise<void> {
-  return main();
+  let pointed = false;
+  if(argv._ && argv._.length > 0){
+    if(argv._[0] === 'pointed') {
+      pointed = true
+    }
+  }
+  return main(pointed);
 }
 
 function writeOutput(success: boolean, output: any) {

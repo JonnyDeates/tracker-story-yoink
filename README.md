@@ -9,3 +9,20 @@ This was created to allow for an easy way to yoink/pull the stories that are act
 3. npm install
 4. npm start
 5. Look into the Stories folder to find the stories imported! 
+
+
+## Alternative Options
+To run the code as normal run the command
+```bash
+npm start
+```
+
+To run the code only showing pointed stories
+```bash
+npm start pointed
+```
+
+To clear your stories folder run the following command
+```bash
+npm run clear
+```
